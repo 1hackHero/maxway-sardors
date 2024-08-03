@@ -1,28 +1,9 @@
-import {
-    NavigationMenu,
-    NavigationMenuItem,
-    NavigationMenuList,
-} from '@/components/ui/navigation-menu';
 import style from '@/styles/SiteHeader.module.css';
 import Account from './Account';
+import { Link } from 'react-router-dom'
 
-const navList: { id: number; label: string; href: string }[] = [
-    {
-        id: 1,
-        label: 'Menyu',
-        href: '/menyu',
-    },
-    {
-        id: 2,
-        label: 'Bolalar uchun',
-        href: '/bolalar-uchun',
-    },
-    {
-        id: 3,
-        label: 'Filliallar',
-        href: '/filliallar',
-    },
-];
+
+
 
 const SiteHeader = () => {
     return (
@@ -30,21 +11,21 @@ const SiteHeader = () => {
             <div className="container">
                 <div className="flex justify-between items-center">
                     <div className="w-full lg:w-[60%] flex justify-between items-center">
-                        <a href="/">
+                        <Link to="/">
                             <img src="/images/logo.svg" alt="" />
-                        </a>
+                        </Link>
 
                         <h1 className={style.title}>MaxWay</h1>
 
-                        <NavigationMenu>
-                            <NavigationMenuList className="gap-10">
-                                {navList.map((item) => (
-                                    <NavigationMenuItem key={item.id}>
-                                        <a href={item.href}>{item.label}</a>
-                                    </NavigationMenuItem>
-                                ))}
-                            </NavigationMenuList>
-                        </NavigationMenu>
+                        <nav>
+                            <ul>
+                                <li><Link to='/'>Menu</Link></li>
+                                <li><Link to='/bolalaruchun'>Bolalar uchun</Link></li>
+                                <li><Link to='/filiallar'>Filiallar</Link></li>
+                            </ul>
+                        </nav>
+
+                        
                     </div>
 
                     <div className="w-full lg:w-[40%] flex gap-5 items-center justify-center">

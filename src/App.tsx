@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import SiteHeader from '@/components/SiteHeader';
 import { Button } from '@/components/ui/button';
 import { Context as CounterContext } from '@/context/counter.provider';
@@ -10,7 +11,18 @@ const App = () => {
 
     return (
         <>
-            <SiteHeader />
+           
+            <BrowserRouter>
+             <SiteHeader />
+                <Routes>
+                    <Route path="/" element={<h1>Menu</h1>} />
+                    <Route
+                        path="/bolalaruchun"
+                        element={<h1>Bolalar uchun</h1>}
+                    />
+                    <Route path="/filiallar" element={<h1>Filiallar</h1>} />
+                </Routes>
+            </BrowserRouter>
 
             <h1>{count}</h1>
 
