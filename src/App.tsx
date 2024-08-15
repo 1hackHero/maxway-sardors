@@ -1,23 +1,25 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import SiteHeader from '@/components/SiteHeader';
-import { Button } from '@/components/ui/button';
-import { Context as CounterContext } from '@/context/counter.provider';
-import style from '@/styles/App.module.css';
-import { useContext } from 'react';
 
 const App = () => {
-    const { count, incrementNumber, decrementNumber } =
-        useContext(CounterContext);
+   
 
     return (
         <>
-            <SiteHeader />
+           
+            <BrowserRouter>
+             <SiteHeader />
+                <Routes>
+                    <Route path="/" element={<h1>Menu</h1>} />
+                    <Route
+                        path="/bolalaruchun"
+                        element={<h1>Bolalar uchun</h1>}
+                    />
+                    <Route path="/filiallar" element={<h1>Filiallar</h1>} />
+                </Routes>
+            </BrowserRouter>
 
-            <h1>{count}</h1>
-
-            <Button onClick={incrementNumber}>+</Button>
-            <Button onClick={decrementNumber}>-</Button>
-
-            <h1 className={style.title}>Hello World!</h1>
+            
         </>
     );
 };
